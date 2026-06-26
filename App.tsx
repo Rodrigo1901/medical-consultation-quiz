@@ -7,6 +7,9 @@ import Intro from "./src/pages/intro";
 import Start from "./src/pages/start";
 import WhoAreYou from "./src/pages/who-are-you";
 import Activity from "./src/pages/activity";
+import ThermometerFirstPage from "./src/pages/thermometer-first-page";
+import ThermometerSecondPage from "./src/pages/thermometer-second-page";
+import ThermometerThirdPage from "./src/pages/thermometer-third-page";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +21,9 @@ export default function App() {
         <Stack.Screen name="Start" component={Start} />
         <Stack.Screen name="WhoAreYou" component={WhoAreYou} />
         <Stack.Screen name="Activity" component={Activity} />
+        <Stack.Screen name="ThermometerFirstPage" component={ThermometerFirstPage} />
+        <Stack.Screen name="ThermometerSecondPage" component={ThermometerSecondPage} />
+        <Stack.Screen name="ThermometerThirdPage" component={ThermometerThirdPage} />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>

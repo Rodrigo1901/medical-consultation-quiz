@@ -25,6 +25,10 @@ export default StyleSheet.create({
     color: "#1800AD",
     marginBottom: 10,
   },
+   header: {
+    height: 100,
+    marginLeft: 20,
+  },
   boxTop: {
     ...boxBase,
     height: 50
@@ -32,19 +36,12 @@ export default StyleSheet.create({
   boxMid: {
     ...boxBase,
     height: 50,
-    marginBottom: 40
+    marginBottom: 10
   },
   boxBottom: {
     ...boxBase,
-    height: 300,
-    justifyContent: "flex-end"
-  },
-  footer: {
-    height: 100,
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    flexDirection: "row",
-    marginTop: 40 
+    height: 450,
+    justifyContent: "flex-start"
   },
   text: {
     ...textBase,
@@ -57,13 +54,6 @@ export default StyleSheet.create({
     overflow: "hidden",
     width: "80%",
     height: 90,
-    ...center,
-  },
-   continueButton: {
-    borderRadius: 35,
-    overflow: "hidden",
-    width: "60%",
-    height: 60,
     ...center,
   },
   gradientInner: {
@@ -90,22 +80,16 @@ export default StyleSheet.create({
     fontSize: 24,
     marginLeft: 30,
   },
-  continueButtonText: {
-    color: "white",
-    fontSize: 24
+   buttonYogaText: {
+    color: "#ffffff",
+    fontWeight: "400",
+    fontSize: 24,
   },
-  iconPatientImage: {
+  iconImage: {
     width: 70,
     height: 70,
     resizeMode: "contain",
     position: "absolute",
     left: 20,
-  },
-   iconParentImage: {
-    width: 70,
-    height: 70,
-    resizeMode: "contain",
-    position: "absolute",
-    left: 20,
-  },
+  }
 });

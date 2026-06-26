@@ -12,13 +12,13 @@ const STORAGE_KEY = "form:activity";
 export default function Activity() {
   const navigation = useNavigation<any>();
 
-  const handleSelectPerfil = useCallback(
-    async (selectedPerfil: Atividade["nomeAtividade"]) => {
+  const handleSelectActivity = useCallback(
+    async (selectedActivity: Atividade["nomeAtividade"]) => {
       try {
         await saveJSON<Atividade>(STORAGE_KEY, {
-          nomeAtividade: selectedPerfil,
+          nomeAtividade: selectedActivity,
         });
-        navigation.navigate("Activity");
+        navigation.navigate("ThermometerFirstPage");
       } catch (e) {
         console.error("Não foi possível salvar os dados:", e);
       }
@@ -29,6 +29,11 @@ export default function Activity() {
   return (
     <View style={styles.container}>
       <ImageBackground source={background} style={styles.image}>
+        <View style={styles.header}>
+          <Pressable onPress={() => navigation.goBack()}>
+            <Image source={require("../../assets/icons/back.png")} />
+          </Pressable>
+        </View>
         <View style={styles.boxTop}>
           <Text style={styles.title}>O que vamos avaliar?</Text>
         </View>
@@ -39,7 +44,7 @@ export default function Activity() {
         <View style={styles.boxBottom}>
           <Pressable
             style={styles.gradientButton}
-            onPress={() => handleSelectPerfil("paciente")}
+            onPress={() => handleSelectActivity("reiki")}
           >
             <LinearGradient
               colors={["#F02BF1", "#9F77FD"]}
@@ -49,14 +54,14 @@ export default function Activity() {
             >
               <Image
                 source={require("../../assets/icons/reiki-icon.png")}
-                style={styles.iconPatientImage}
+                style={styles.iconImage}
               />
               <Text style={styles.buttonReikiText}>REIKI</Text>
             </LinearGradient>
           </Pressable>
           <Pressable
             style={[styles.gradientButton, { marginTop: 20 }]}
-            onPress={() => handleSelectPerfil("familiar")}
+            onPress={() => handleSelectActivity("aromaterapia")}
           >
             <LinearGradient
               colors={["#749AFF", "#A7EAFF"]}
@@ -66,14 +71,14 @@ export default function Activity() {
             >
               <Image
                 source={require("../../assets/icons/aromatherapy-icon.png")}
-                style={styles.iconParentImage}
+                style={styles.iconImage}
               />
               <Text style={styles.buttonAromatherapyText}>AROMATERAPIA</Text>
             </LinearGradient>
           </Pressable>
           <Pressable
             style={[styles.gradientButton, { marginTop: 20 }]}
-            onPress={() => handleSelectPerfil("familiar")}
+            onPress={() => handleSelectActivity("meditação")}
           >
             <LinearGradient
               colors={["#FCF9C3", "#BDFDF9"]}
@@ -83,27 +88,26 @@ export default function Activity() {
             >
               <Image
                 source={require("../../assets/icons/meditation-icon.png")}
-                style={styles.iconParentImage}
+                style={styles.iconImage}
               />
               <Text style={styles.buttonMeditationText}>MEDITAÇÃO</Text>
             </LinearGradient>
           </Pressable>
-        </View>
-        <View style={styles.footer}>
-          <Pressable onPress={() => navigation.goBack()}>
-            <Image source={require("../../assets/icons/back.png")} />
-          </Pressable>
-          <Pressable
-            style={styles.continueButton}
-            onPress={() => navigation.navigate("Start")}
+           <Pressable
+            style={[styles.gradientButton, { marginTop: 20 }]}
+            onPress={() => handleSelectActivity("yoga")}
           >
             <LinearGradient
-              colors={["#FF69B4", "#572DF9", "#03F7EB"]}
+              colors={["#FF6CC0", "#FFD661"]}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={styles.gradientInner}
             >
-              <Text style={styles.continueButtonText}>Continuar</Text>
+              <Image
+                source={require("../../assets/icons/yoga.png")}
+                style={styles.iconImage}
+              />
+              <Text style={styles.buttonYogaText}>YOGA</Text>
             </LinearGradient>
           </Pressable>
         </View>
