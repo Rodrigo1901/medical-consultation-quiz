@@ -5,9 +5,9 @@ import background from "../../assets/background.png";
 import { LinearGradient } from "expo-linear-gradient";
 import styles from "./styles";
 import { Perfil } from "../../models/data.model";
-import { saveJSON } from "../../utils/storage";
+import { saveJSON, STORAGE_KEYS } from "../../utils/storage";
 
-const STORAGE_KEY = "form:perfilUsuario";
+const STORAGE_KEY = STORAGE_KEYS.PERFIL_USUARIO;
 
 export default function WhoAreYou() {
   const navigation = useNavigation<any>();

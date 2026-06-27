@@ -26,11 +26,6 @@ export default StyleSheet.create({
     color: "#1800AD",
     marginBottom: 4,
   },
-  cardImage: {
-    width: "100%",
-    height: 40,
-    resizeMode: "contain",
-  },
   iconRow: {
     flexDirection: "row",
     justifyContent: "space-between",

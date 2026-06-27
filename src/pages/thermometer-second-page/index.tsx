@@ -6,9 +6,9 @@ import styles from "./styles";
 import { Rate } from "../../components/Rate";
 import { LinearGradient } from "expo-linear-gradient";
 import { RespostaTermometro } from "../../models/data.model";
-import { saveJSON, loadJSON } from "../../utils/storage";
+import { saveJSON, loadJSON, STORAGE_KEYS } from "../../utils/storage";
 
-const STORAGE_KEY = "form:respostasTermometro";
+const STORAGE_KEY = STORAGE_KEYS.RESPOSTAS_TERMOMETRO;
 
 export default function ThermometerSecondPage() {
   const navigation = useNavigation<any>();
@@ -37,6 +37,34 @@ export default function ThermometerSecondPage() {
     }
     navigation.navigate("ThermometerThirdPage");
   }, [ratingLifeQuality, ratingTension, ratingBeliefConfort, ratingHappiness]);
+
+  const saveRatings = useCallback(async () => {
+    try {
+      const existing = await loadJSON<RespostaTermometro>(STORAGE_KEY);
+      const dados: Partial<RespostaTermometro> = {
+        ...existing,
+        qualidadeDeVida: ratingLifeQuality ?? existing?.qualidadeDeVida ?? 0,
+        nivelDeTensao: ratingTension ?? existing?.nivelDeTensao ?? 0,
+        nivelConfortoCrenca: ratingBeliefConfort ?? existing?.nivelConfortoCrenca ?? 0,
+        nivelFelicidade: ratingHappiness ?? existing?.nivelFelicidade ?? 0,
+      };
+      await saveJSON<Partial<RespostaTermometro>>(STORAGE_KEY, dados);
+    } catch (e) {
+      console.error("Não foi possível persistir as respostas:", e);
+    }
+  }, [ratingLifeQuality, ratingTension, ratingBeliefConfort, ratingHappiness]);
+
+  useEffect(() => {
+    const hasAnyRating =
+      ratingLifeQuality !== undefined ||
+      ratingTension !== undefined ||
+      ratingBeliefConfort !== undefined ||
+      ratingHappiness !== undefined;
+
+    if (hasAnyRating) {
+      saveRatings();
+    }
+  }, [saveRatings, ratingLifeQuality, ratingTension, ratingBeliefConfort, ratingHappiness]);
 
   const loadDados = useCallback(async () => {
     try {
@@ -82,6 +110,7 @@ export default function ThermometerSecondPage() {
             title="Como esta se sentindo?"
             firstLabel="Péssima"
             lastLabel="Ótima"
+            value={ratingLifeQuality}
             onChange={setRatingLifeQuality}
           ></Rate>
           <Rate
@@ -89,6 +118,7 @@ export default function ThermometerSecondPage() {
             title="Sentiu-se tenso hoje?"
             firstLabel="Pouco"
             lastLabel="Muito"
+            value={ratingTension}
             onChange={setRatingTension}
           ></Rate>
           <Rate
@@ -96,6 +126,7 @@ export default function ThermometerSecondPage() {
             title="Encontrou conforto em suas crenças?"
             firstLabel="Pouco"
             lastLabel="Muito"
+            value={ratingBeliefConfort}
             onChange={setRatingBeliefConfort}
           ></Rate>
           <Rate
@@ -103,6 +134,7 @@ export default function ThermometerSecondPage() {
             title="O quão feliz você se sente?"
             firstLabel="Pouco"
             lastLabel="Muito"
+            value={ratingHappiness}
             onChange={setRatingHappiness}
           ></Rate>
         </View>

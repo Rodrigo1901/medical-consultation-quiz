@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { Text, View, Image, Pressable } from "react-native";
 import styles from "./styles";
 
@@ -14,12 +14,19 @@ type props = {
   title: string;
   firstLabel?: string;
   lastLabel?: string;
+  value?: number;
   onChange?: (selected: number) => void;
   style?: any;
 };
 
 export const Rate = forwardRef((props: props, ref) => {
-  const [selected, setSelected] = useState<number | null>(null);
+  const [selected, setSelected] = useState<number | null>(
+    props.value ? props.value - 1 : null
+  );
+
+  useEffect(() => {
+    setSelected(props.value !== undefined && props.value !== null ? props.value - 1 : null);
+  }, [props.value]);
 
   const handleSelect = (i: number) => {
     setSelected(i);

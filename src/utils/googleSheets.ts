@@ -5,66 +5,55 @@ import {
   Perfil,
   RespostaTermometro,
 } from "../models/data.model";
-import { loadJSON } from "./storage";
+import { loadJSON, STORAGE_KEYS } from "./storage";
 
 const APPS_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbx86N5jJCYjVJfu_gsvg3S77FqMAMUajX2M7Z-tExus5q_BhbGEgr7mS-DKnEr-q6e9/exec";
 
-const dadosUsuarioKey = "form:dadosUsuario";
-const perfilKey = "form:perfilUsuario";
-const atividadeKey = "form:activity";
-const respostasTermometroKey = "form:respostasTermometro";
-
-let dadosUsuario: DadosUsuario;
-let perfil: Perfil;
-let atividade: Atividade;
-let respostasTermometro: RespostaTermometro;
-
-const loadDadosUsuario = async () => {
+const loadDadosUsuario = async (): Promise<DadosUsuario | null> => {
   try {
-    const stored = await loadJSON<DadosUsuario>(dadosUsuarioKey);
-    if (stored) {
-      dadosUsuario = stored;
-    }
-  } catch (e) {}
+    return await loadJSON<DadosUsuario>(STORAGE_KEYS.DADOS_USUARIO);
+  } catch (e) {
+    console.error("Não foi possível carregar dados do usuário:", e);
+    return null;
+  }
 };
 
-const loadPerfil = async () => {
+const loadPerfil = async (): Promise<Perfil | null> => {
   try {
-    const stored = await loadJSON<Perfil>(perfilKey);
-    if (stored) {
-      perfil = stored;
-    }
-  } catch (e) {}
+    return await loadJSON<Perfil>(STORAGE_KEYS.PERFIL_USUARIO);
+  } catch (e) {
+    console.error("Não foi possível carregar o perfil:", e);
+    return null;
+  }
 };
 
-const loadAtividade = async () => {
+const loadAtividade = async (): Promise<Atividade | null> => {
   try {
-    const stored = await loadJSON<Atividade>(atividadeKey);
-    if (stored) {
-      atividade = stored;
-    }
-  } catch (e) {}
+    return await loadJSON<Atividade>(STORAGE_KEYS.ATIVIDADE);
+  } catch (e) {
+    console.error("Não foi possível carregar a atividade:", e);
+    return null;
+  }
 };
 
-const loadRespostasTermometro = async () => {
+const loadRespostasTermometro = async (): Promise<RespostaTermometro | null> => {
   try {
-    const stored = await loadJSON<RespostaTermometro>(respostasTermometroKey);
-    if (stored) {
-      respostasTermometro = stored;
-    }
+    return await loadJSON<RespostaTermometro>(STORAGE_KEYS.RESPOSTAS_TERMOMETRO);
   } catch (e) {
     console.error("Não foi possível carregar as respostas:", e);
+    return null;
   }
 };
 
 export async function salvarDadosNoSheet() {
-  await Promise.all([
-    loadDadosUsuario(),
-    loadPerfil(),
-    loadAtividade(),
-    loadRespostasTermometro(),
-  ]);
+  const [dadosUsuario, perfil, atividade, respostasTermometro] =
+    await Promise.all([
+      loadDadosUsuario(),
+      loadPerfil(),
+      loadAtividade(),
+      loadRespostasTermometro(),
+    ]);
 
   const payload = {
     nome: dadosUsuario?.nome ?? "",

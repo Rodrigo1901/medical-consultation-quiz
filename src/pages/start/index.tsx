@@ -12,11 +12,11 @@ import Logo from "../../assets/logo.png";
 import background from "../../assets/start-background.png";
 import { LinearGradient } from "expo-linear-gradient";
 import { DadosUsuario } from "../../models/data.model";
-import { saveJSON, loadJSON } from "../../utils/storage";
+import { saveJSON, loadJSON, STORAGE_KEYS } from "../../utils/storage";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
-const STORAGE_KEY = "form:dadosUsuario";
+const STORAGE_KEY = STORAGE_KEYS.DADOS_USUARIO;
 
 export default function Start() {
   const navigation = useNavigation<any>();

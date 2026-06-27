@@ -74,11 +74,6 @@ export default StyleSheet.create({
     color: "#6149FB",
     marginBottom: 12,
   },
-  cardImage: {
-    width: "100%",
-    height: 40,
-    resizeMode: "contain",
-  },
   facesRow: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -111,11 +106,6 @@ export default StyleSheet.create({
     paddingVertical: 2,
     backgroundColor: "rgba(255,105,180,0.12)",
     borderRadius: 12,
-  },
-  faceLabel: {
-    marginTop: 6,
-    fontSize: 12,
-    fontWeight: "600",
   },
   gradientButton: {
     borderRadius: 30,

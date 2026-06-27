@@ -5,9 +5,9 @@ import background from "../../assets/background.png";
 import { LinearGradient } from "expo-linear-gradient";
 import styles from "./styles";
 import { Atividade, Perfil } from "../../models/data.model";
-import { saveJSON } from "../../utils/storage";
+import { saveJSON, STORAGE_KEYS } from "../../utils/storage";
 
-const STORAGE_KEY = "form:activity";
+const STORAGE_KEY = STORAGE_KEYS.ATIVIDADE;
 
 export default function Activity() {
   const navigation = useNavigation<any>();

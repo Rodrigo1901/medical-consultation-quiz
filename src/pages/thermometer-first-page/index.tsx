@@ -13,9 +13,9 @@ import styles from "./styles";
 import Slider from "@react-native-community/slider";
 import { RespostaTermometro } from "../../models/data.model";
 import { LinearGradient } from "expo-linear-gradient";
-import { saveJSON, loadJSON } from "../../utils/storage";
+import { saveJSON, loadJSON, STORAGE_KEYS } from "../../utils/storage";
 
-const STORAGE_KEY = "form:respostasTermometro";
+const STORAGE_KEY = STORAGE_KEYS.RESPOSTAS_TERMOMETRO;
 
 export default function ThermometerFirstPage() {
   const navigation = useNavigation<any>();
