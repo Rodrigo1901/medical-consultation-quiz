@@ -1,4 +1,4 @@
-# Maia 🚀
+# Maia 🩺
 
 Aplicativo híbrido em Expo/React Native para coleta de dados de um questionário de acompanhamento de atividades integrativas e bem-estar.
 
