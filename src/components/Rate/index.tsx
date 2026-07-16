@@ -21,11 +21,15 @@ type props = {
 
 export const Rate = forwardRef((props: props, ref) => {
   const [selected, setSelected] = useState<number | null>(
-    props.value ? props.value - 1 : null
+    props.value ? props.value - 1 : null,
   );
 
   useEffect(() => {
-    setSelected(props.value !== undefined && props.value !== null ? props.value - 1 : null);
+    setSelected(
+      props.value !== undefined && props.value !== null
+        ? props.value - 1
+        : null,
+    );
   }, [props.value]);
 
   const handleSelect = (i: number) => {
@@ -46,11 +50,17 @@ export const Rate = forwardRef((props: props, ref) => {
               onPress={() => handleSelect(i)}
               style={styles.iconPress}
             >
-              <View style={selected === i ? styles.iconPressSelected : undefined}>
+              <View
+                style={selected === i ? styles.iconPressSelected : undefined}
+              >
                 <Image source={f} style={styles.iconImage} />
               </View>
-              {i === 0 && <Text style={styles.iconLabel}>{props.firstLabel}</Text>}
-              {i === 4 && <Text style={styles.iconLabel}>{props.lastLabel}</Text>}
+              {i === 0 && (
+                <Text style={styles.iconLabel}>{props.firstLabel}</Text>
+              )}
+              {i === 4 && (
+                <Text style={styles.iconLabel}>{props.lastLabel}</Text>
+              )}
             </Pressable>
           ))}
         </View>

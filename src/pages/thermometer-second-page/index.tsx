@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Text, View, Image, ImageBackground, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { NavigationProp } from "../../navigation/types";
 import background from "../../assets/background.png";
 import styles from "./styles";
 import { Rate } from "../../components/Rate";
@@ -11,7 +12,7 @@ import { saveJSON, loadJSON, STORAGE_KEYS } from "../../utils/storage";
 const STORAGE_KEY = STORAGE_KEYS.RESPOSTAS_TERMOMETRO;
 
 export default function ThermometerSecondPage() {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<NavigationProp<"ThermometerSecondPage">>();
   const [ratingLifeQuality, setRatingLifeQuality] = useState<number>();
   const [ratingTension, setRatingTension] = useState<number>();
   const [ratingBeliefConfort, setRatingBeliefConfort] = useState<number>();
@@ -45,7 +46,8 @@ export default function ThermometerSecondPage() {
         ...existing,
         qualidadeDeVida: ratingLifeQuality ?? existing?.qualidadeDeVida ?? 0,
         nivelDeTensao: ratingTension ?? existing?.nivelDeTensao ?? 0,
-        nivelConfortoCrenca: ratingBeliefConfort ?? existing?.nivelConfortoCrenca ?? 0,
+        nivelConfortoCrenca:
+          ratingBeliefConfort ?? existing?.nivelConfortoCrenca ?? 0,
         nivelFelicidade: ratingHappiness ?? existing?.nivelFelicidade ?? 0,
       };
       await saveJSON<Partial<RespostaTermometro>>(STORAGE_KEY, dados);
@@ -64,7 +66,13 @@ export default function ThermometerSecondPage() {
     if (hasAnyRating) {
       saveRatings();
     }
-  }, [saveRatings, ratingLifeQuality, ratingTension, ratingBeliefConfort, ratingHappiness]);
+  }, [
+    saveRatings,
+    ratingLifeQuality,
+    ratingTension,
+    ratingBeliefConfort,
+    ratingHappiness,
+  ]);
 
   const loadDados = useCallback(async () => {
     try {
@@ -106,7 +114,6 @@ export default function ThermometerSecondPage() {
           </View>
 
           <Rate
-            style={{ marginBottom: 5 }}
             title="Como esta se sentindo?"
             firstLabel="Péssima"
             lastLabel="Ótima"
@@ -114,7 +121,6 @@ export default function ThermometerSecondPage() {
             onChange={setRatingLifeQuality}
           ></Rate>
           <Rate
-            style={{ marginBottom: 5 }}
             title="Sentiu-se tenso hoje?"
             firstLabel="Pouco"
             lastLabel="Muito"
@@ -122,7 +128,6 @@ export default function ThermometerSecondPage() {
             onChange={setRatingTension}
           ></Rate>
           <Rate
-            style={{ marginBottom: 5 }}
             title="Encontrou conforto em suas crenças?"
             firstLabel="Pouco"
             lastLabel="Muito"
@@ -130,7 +135,6 @@ export default function ThermometerSecondPage() {
             onChange={setRatingBeliefConfort}
           ></Rate>
           <Rate
-            style={{ marginBottom: 5 }}
             title="O quão feliz você se sente?"
             firstLabel="Pouco"
             lastLabel="Muito"

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { fontScale } from "../../utils/typography";
 
 const center = { alignItems: "center", justifyContent: "flex-start" } as const;
 const boxBase = {
@@ -21,7 +22,7 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   cardText: {
-    fontSize: 16,
+    fontSize: fontScale(16),
     fontWeight: "700",
     color: "#1800AD",
     marginBottom: 4,
@@ -49,7 +50,7 @@ export default StyleSheet.create({
   },
   iconLabel: {
     marginTop: 6,
-    fontSize: 14,
+    fontSize: fontScale(14),
     fontWeight: "700",
     color: "#1800AD",
   },

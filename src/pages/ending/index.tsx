@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, View, Image, ImageBackground, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { NavigationProp } from "../../navigation/types";
 import { LinearGradient } from "expo-linear-gradient";
 import background from "../../assets/background.png";
 import Logo from "../../assets/logo.png";
@@ -8,7 +9,7 @@ import checkmark from "../../assets/check-mark.png";
 import styles from "./styles";
 
 export default function Ending() {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<NavigationProp<"Ending">>();
 
   return (
     <View style={styles.container}>
@@ -16,14 +17,19 @@ export default function Ending() {
         <View style={styles.boxTop}>
           <Image source={checkmark} style={styles.icon} resizeMode="contain" />
           <Text style={styles.title}>Obrigado!</Text>
-          <Text style={styles.subtitle}>Sua resposta foi enviada com sucesso!</Text>
-          <Text style={styles.text}>Você está ajudando a melhorar o cuidado de todos!</Text>
+          <Text style={styles.subtitle}>
+            Sua resposta foi enviada com sucesso!
+          </Text>
+          <Text style={styles.text}>
+            Você está ajudando a melhorar o cuidado de todos!
+          </Text>
         </View>
 
         <View style={styles.boxMid}>
           <Image style={styles.logo} source={Logo} resizeMode="contain" />
           <Text style={styles.quote}>
-            "O que eu faço é uma gota no meio de um oceano. Mas, sem ela, o oceano será menor."
+            "O que eu faço é uma gota no meio de um oceano. Mas, sem ela, o
+            oceano será menor."
           </Text>
           <Text style={styles.quoteAuthor}>Madre Teresa de Calcutá</Text>
         </View>

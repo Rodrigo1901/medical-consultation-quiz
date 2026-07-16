@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { Text, View, Image, ImageBackground, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { NavigationProp } from "../../navigation/types";
 import background from "../../assets/background.png";
 import { LinearGradient } from "expo-linear-gradient";
 import styles from "./styles";
@@ -10,7 +11,7 @@ import { saveJSON, STORAGE_KEYS } from "../../utils/storage";
 const STORAGE_KEY = STORAGE_KEYS.PERFIL_USUARIO;
 
 export default function WhoAreYou() {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<NavigationProp<"WhoAreYou">>();
 
   const handleSelectPerfil = useCallback(
     async (selectedPerfil: Perfil["tipo"]) => {

@@ -1,7 +1,12 @@
 import { StyleSheet } from "react-native";
+import { fontScale } from "../../utils/typography";
 
 const center = { alignItems: "center", justifyContent: "center" } as const;
-const boxBase = { width: "100%", alignItems: "center", justifyContent: "flex-start" } as const;
+const boxBase = {
+  width: "100%",
+  alignItems: "center",
+  justifyContent: "flex-start",
+} as const;
 const inputBase = {
   borderWidth: 2,
   borderColor: "#FF69B4",
@@ -28,20 +33,25 @@ export default StyleSheet.create({
   },
   boxTop: {
     ...boxBase,
-    height: 250,
+    flex: 1,
+    justifyContent: "center",
+    paddingTop: 150,
   },
   boxMid: {
     ...boxBase,
-    height: 200,
-    marginBottom: 60,
+    flex: 1.5,
+    justifyContent: "center",
+    paddingTop: 80,
   },
   boxBottom: {
     ...boxBase,
-    height: 150,
+    flex: 1,
+    justifyContent: "center",
+    paddingBottom: 100,
   },
   text: {
     ...textBase,
-    fontSize: 14,
+    fontSize: fontScale(14),
     color: "#00000080",
     marginTop: 10,
   },
@@ -52,7 +62,7 @@ export default StyleSheet.create({
   },
   datePressable: {
     width: "80%",
-    alignItems: "center"
+    alignItems: "center",
   },
   dateInput: {
     ...inputBase,
@@ -79,7 +89,7 @@ export default StyleSheet.create({
   },
   buttonText: {
     color: "white",
-    fontSize: 20,
+    fontSize: fontScale(20),
     fontWeight: "bold",
   },
 });

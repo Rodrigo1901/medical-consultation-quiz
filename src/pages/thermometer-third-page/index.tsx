@@ -9,11 +9,17 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { NavigationProp } from "../../navigation/types";
 import background from "../../assets/background.png";
 import styles from "./styles";
 import { LinearGradient } from "expo-linear-gradient";
 import { Atividade, RespostaTermometro } from "../../models/data.model";
-import { saveJSON, loadJSON, removeAllWithPrefix, STORAGE_KEYS } from "../../utils/storage";
+import {
+  saveJSON,
+  loadJSON,
+  removeAllWithPrefix,
+  STORAGE_KEYS,
+} from "../../utils/storage";
 import { salvarDadosNoSheet } from "../../utils/googleSheets";
 
 const STORAGE_KEY = STORAGE_KEYS.RESPOSTAS_TERMOMETRO;
@@ -21,7 +27,7 @@ const STORAGE_KEY_ATIVIDADE = STORAGE_KEYS.ATIVIDADE;
 const STORAGE_KEY_WHO_ARE_YOU = STORAGE_KEYS.PERFIL_USUARIO;
 
 export default function ThermometerThirdPage() {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<NavigationProp<"ThermometerThirdPage">>();
   const [activity, setActivity] = useState<string>("");
   const [howWasYourActivicty, setHowWasYourActivicty] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);

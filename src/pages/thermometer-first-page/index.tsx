@@ -8,6 +8,7 @@ import {
   Alert,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { NavigationProp } from "../../navigation/types";
 import background from "../../assets/background.png";
 import styles from "./styles";
 import Slider from "@react-native-community/slider";
@@ -18,7 +19,7 @@ import { saveJSON, loadJSON, STORAGE_KEYS } from "../../utils/storage";
 const STORAGE_KEY = STORAGE_KEYS.RESPOSTAS_TERMOMETRO;
 
 export default function ThermometerFirstPage() {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<NavigationProp<"ThermometerFirstPage">>();
   const [selected, setSelected] = useState<number | null>(null);
   const [painLevel, setPainLevel] = useState(0);
 

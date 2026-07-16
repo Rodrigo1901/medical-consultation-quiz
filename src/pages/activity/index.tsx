@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { Text, View, Image, ImageBackground, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import type { NavigationProp } from "../../navigation/types";
 import background from "../../assets/background.png";
 import { LinearGradient } from "expo-linear-gradient";
 import styles from "./styles";
@@ -10,7 +11,7 @@ import { saveJSON, STORAGE_KEYS } from "../../utils/storage";
 const STORAGE_KEY = STORAGE_KEYS.ATIVIDADE;
 
 export default function Activity() {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<NavigationProp<"Activity">>();
 
   const handleSelectActivity = useCallback(
     async (selectedActivity: Atividade["nomeAtividade"]) => {
@@ -93,7 +94,7 @@ export default function Activity() {
               <Text style={styles.buttonMeditationText}>MEDITAÇÃO</Text>
             </LinearGradient>
           </Pressable>
-           <Pressable
+          <Pressable
             style={[styles.gradientButton, { marginTop: 20 }]}
             onPress={() => handleSelectActivity("yoga")}
           >

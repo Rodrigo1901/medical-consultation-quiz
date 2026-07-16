@@ -15,11 +15,12 @@ import { DadosUsuario } from "../../models/data.model";
 import { saveJSON, loadJSON, STORAGE_KEYS } from "../../utils/storage";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
+import type { NavigationProp } from "../../navigation/types";
 
 const STORAGE_KEY = STORAGE_KEYS.DADOS_USUARIO;
 
 export default function Start() {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<NavigationProp<"Start">>();
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [date, setDate] = useState(new Date());

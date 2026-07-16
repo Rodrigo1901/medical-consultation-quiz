@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { fontScale } from "../../utils/typography";
 
 const center = { alignItems: "center", justifyContent: "center" } as const;
 const boxBase = {
@@ -19,7 +20,7 @@ export default StyleSheet.create({
     width: "100%",
   },
   title: {
-    fontSize: 30,
+    fontSize: fontScale(30),
     fontWeight: "bold",
     textAlign: "center",
     color: "#1800AD",
@@ -27,23 +28,24 @@ export default StyleSheet.create({
   },
   boxTop: {
     ...boxBase,
-    height: 50,
+    paddingTop: 200,
     marginBottom: 20,
   },
   boxMid: {
     ...boxBase,
-    height: 50
+    paddingVertical: 10,
   },
   boxBottom: {
     ...boxBase,
-    height: 300,
-    marginBottom: 100,
+    flex: 1,
+    justifyContent: "flex-start",
+    marginBottom: 40,
   },
   text: {
     ...textBase,
-    fontSize: 20,
+    fontSize: fontScale(20),
     textAlign: "center",
-    color: "#715CF8"
+    color: "#715CF8",
   },
   gradientButton: {
     borderRadius: 20,
@@ -61,12 +63,12 @@ export default StyleSheet.create({
   buttonPatientText: {
     color: "#1800AD",
     fontWeight: "500",
-    fontSize: 16,
+    fontSize: fontScale(16),
   },
   buttonParentText: {
     color: "#F20095",
     fontWeight: "500",
-    fontSize: 16,
+    fontSize: fontScale(16),
   },
   iconPatientImage: {
     width: 70,
@@ -74,7 +76,7 @@ export default StyleSheet.create({
     marginRight: 2,
     resizeMode: "contain",
   },
-   iconParentImage: {
+  iconParentImage: {
     width: 70,
     height: 70,
     marginRight: 12,

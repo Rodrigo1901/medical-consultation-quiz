@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { fontScale } from "../../utils/typography";
 
 const center = { alignItems: "center", justifyContent: "flex-start" } as const;
 const boxBase = {
@@ -18,53 +19,53 @@ export default StyleSheet.create({
     width: "100%",
   },
   header: {
-    height: 30,
+    paddingTop: 70,
     marginLeft: 20,
-    marginBottom: 40,
   },
   boxMid: {
     ...boxBase,
-    height: 550,
-    marginTop: 0,
+    flex: 1,
+    paddingVertical: 10,
   },
   title: {
-    fontSize: 24,
+    fontSize: fontScale(24),
     color: "#740390",
   },
-   card: {
-    flexDirection: 'column',
+  card: {
+    flexDirection: "column",
     width: "85%",
-    height: 370,
+    minHeight: 380,
     backgroundColor: "#fdd4ed86",
     borderRadius: 30,
     alignItems: "center",
-    marginTop: 50,
+    marginTop: 30,
+    paddingVertical: 10,
   },
   cardTitle: {
-    fontSize: 18,
+    fontSize: fontScale(18),
     marginTop: 10,
     fontWeight: "bold",
     color: "#740390",
     marginBottom: 4,
   },
-   input: {
+  input: {
     borderWidth: 1,
-    borderColor: 'transparent',
+    borderColor: "transparent",
     borderRadius: 30,
     marginVertical: 20,
     paddingHorizontal: 20,
-    textAlignVertical: 'top',
-    backgroundColor: '#fff',
-    color: '#740390',
-    fontSize: 18,
-    width: '90%',
-    height: '100%',
+    textAlignVertical: "top",
+    backgroundColor: "#fff",
+    color: "#740390",
+    fontSize: fontScale(18),
+    width: "90%",
+    minHeight: 180,
     flex: 1,
     flexGrow: 1,
   },
   boxBottom: {
     ...boxBase,
-    height: 80,
+    paddingBottom: 100,
     justifyContent: "flex-start",
   },
   progressLabel: {
@@ -72,6 +73,7 @@ export default StyleSheet.create({
     marginLeft: 40,
     color: "#7A6CFF",
     marginBottom: 8,
+    fontSize: fontScale(18),
   },
   progressOuter: {
     width: "80%",
@@ -104,7 +106,7 @@ export default StyleSheet.create({
   },
   buttonText: {
     color: "white",
-    fontSize: 22,
+    fontSize: fontScale(22),
     fontWeight: "bold",
   },
 });

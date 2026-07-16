@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { fontScale } from "../../utils/typography";
 
 const center = { alignItems: "center", justifyContent: "flex-start" } as const;
 const boxBase = {
@@ -18,27 +19,27 @@ export default StyleSheet.create({
     width: "100%",
   },
   header: {
-    height: 60,
+    paddingTop: 70,
     marginLeft: 20,
-    marginBottom: 40,
+    marginBottom: 10,
   },
   boxTop: {
     ...boxBase,
-    height: 50,
+    paddingTop: 20,
   },
   title: {
-    fontSize: 30,
+    fontSize: fontScale(30),
     fontWeight: "500",
     color: "#826FF9",
   },
   boxMid: {
     ...boxBase,
-    height: 400,
-    marginTop: 10,
+    flex: 1,
+    marginTop: 20,
   },
   boxBottom: {
     ...boxBase,
-    height: 100,
+    paddingBottom: 120,
     justifyContent: "center",
   },
   progressLabel: {
@@ -46,6 +47,7 @@ export default StyleSheet.create({
     marginLeft: 40,
     color: "#7A6CFF",
     marginBottom: 8,
+    fontSize: fontScale(18),
   },
   progressOuter: {
     width: "80%",
@@ -69,7 +71,7 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   cardTitle: {
-    fontSize: 18,
+    fontSize: fontScale(18),
     fontWeight: "700",
     color: "#6149FB",
     marginBottom: 12,
@@ -125,16 +127,16 @@ export default StyleSheet.create({
   },
   buttonText: {
     color: "white",
-    fontSize: 22,
+    fontSize: fontScale(22),
     fontWeight: "bold",
   },
   sliderRow: {
     flexDirection: "row",
   },
   sliderValueText: {
-    fontSize: 18,
+    fontSize: fontScale(18),
     fontWeight: "500",
     color: "#826FF9",
-    marginTop: 6
+    marginTop: 6,
   },
 });

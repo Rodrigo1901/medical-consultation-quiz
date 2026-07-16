@@ -1,7 +1,12 @@
 import { StyleSheet } from "react-native";
+import { fontScale } from "../../utils/typography";
 
 const center = { alignItems: "center", justifyContent: "center" } as const;
-const boxBase = { width: "100%", alignItems: "center", justifyContent: "center" } as const;
+const boxBase = {
+  width: "100%",
+  alignItems: "center",
+  justifyContent: "center",
+} as const;
 const textBase = { alignSelf: "flex-start", marginHorizontal: 50 } as const;
 
 export default StyleSheet.create({
@@ -21,7 +26,7 @@ export default StyleSheet.create({
   boxTop: {
     ...boxBase,
     height: 250,
-    marginBottom: 50
+    marginBottom: 50,
   },
   boxMid: {
     ...boxBase,
@@ -34,7 +39,7 @@ export default StyleSheet.create({
   },
   text: {
     ...textBase,
-    fontSize: 18,
+    fontSize: fontScale(18),
     textAlign: "center",
     color: "#715CF8",
     marginTop: 10,
@@ -53,7 +58,7 @@ export default StyleSheet.create({
   },
   buttonText: {
     color: "white",
-    fontSize: 24,
+    fontSize: fontScale(24),
     fontWeight: "bold",
   },
 });

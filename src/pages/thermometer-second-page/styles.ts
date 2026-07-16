@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { fontScale } from "../../utils/typography";
 
 const center = { alignItems: "center", justifyContent: "flex-start" } as const;
 const boxBase = {
@@ -18,24 +19,25 @@ export default StyleSheet.create({
     width: "100%",
   },
   header: {
-    height: 30,
+    paddingTop: 70,
     marginLeft: 20,
-    marginBottom: 40,
   },
   boxMid: {
     ...boxBase,
-    height: 550,
+    flex: 1,
+    paddingVertical: 10,
   },
   boxBottom: {
     ...boxBase,
-    height: 80,
     justifyContent: "flex-start",
+    paddingBottom: 90,
   },
   progressLabel: {
     alignSelf: "flex-start",
     marginLeft: 40,
     color: "#7A6CFF",
     marginBottom: 8,
+    fontSize: fontScale(18),
   },
   progressOuter: {
     width: "80%",
@@ -66,9 +68,9 @@ export default StyleSheet.create({
   disabledButton: {
     opacity: 0.6,
   },
-   buttonText: {
+  buttonText: {
     color: "white",
-    fontSize: 22,
+    fontSize: fontScale(22),
     fontWeight: "bold",
   },
 });
