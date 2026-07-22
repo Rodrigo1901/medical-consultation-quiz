@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "MAIA",
-    "slug": "rodrigo-oliveira-de-souza",
+    "slug": "medical-consultation-quiz",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,7 +11,7 @@
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#FAB7D8",
-      "imageWidth": 449
+      "imageWidth": 642
     },
     "ios": {
       "supportsTablet": true
@@ -34,7 +34,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "5ce59c24-f730-458f-992d-a8d1ff0c6b15"
+        "projectId": "a8ef3e23-dfd6-491d-bb39-85437fbb665e"
       }
     },
     "owner": "rodrigo19011996s-team"
