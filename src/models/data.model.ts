@@ -2,6 +2,7 @@ export interface DadosUsuario {
     nome: string;
     email: string;
     dataNascimento: string;
+    aceitoTermos?: boolean;
 }
 
 export interface Perfil {

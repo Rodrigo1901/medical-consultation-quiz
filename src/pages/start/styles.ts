@@ -35,7 +35,7 @@ export default StyleSheet.create({
     ...boxBase,
     flex: 1,
     justifyContent: "center",
-    paddingTop: 150,
+    paddingTop: 120,
   },
   boxMid: {
     ...boxBase,
@@ -90,6 +90,92 @@ export default StyleSheet.create({
   buttonText: {
     color: "white",
     fontSize: fontScale(20),
+    fontWeight: "bold",
+  },
+  checkboxContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: "75%",
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  checkbox: {
+    width: 24,
+    height: 24,
+    borderWidth: 2,
+    borderColor: "#FF69B4",
+    borderRadius: 4,
+    marginRight: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  checkboxChecked: {
+    backgroundColor: "#FF69B4",
+  },
+  checkboxMark: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  consentText: {
+    fontSize: fontScale(12),
+    color: "#000000",
+    flex: 1,
+    flexWrap: "wrap",
+  },
+  link: {
+    color: "#5B5FFF",
+    textDecorationLine: "underline",
+    fontWeight: "500",
+  },
+  bottomSheetContainer: {
+    flex: 1,
+    backgroundColor: "#FFFFFF",
+    marginTop: 50,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  bottomSheetHeader: {
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: "#EEEEEE",
+    alignItems: "flex-end",
+  },
+  closeButton: {
+    color: "#5B5FFF",
+    fontSize: fontScale(14),
+    fontWeight: "600",
+  },
+  bottomSheetContent: {
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+  },
+  bottomSheetTitle: {
+    fontSize: fontScale(16),
+    fontWeight: "bold",
+    color: "#000000",
+    marginBottom: 10,
+  },
+  bottomSheetSubtitle: {
+    fontSize: fontScale(12),
+    color: "#666666",
+    marginBottom: 15,
+    fontWeight: "500",
+  },
+  sectionTitle: {
+    fontSize: fontScale(13),
+    fontWeight: "bold",
+    color: "#000000",
+    marginTop: 15,
+    marginBottom: 8,
+  },
+  bottomSheetText: {
+    fontSize: fontScale(11),
+    color: "#333333",
+    lineHeight: 18,
+  },
+  bold: {
     fontWeight: "bold",
   },
 });

@@ -31,7 +31,7 @@ export default StyleSheet.create({
   },
   boxMid: {
     ...boxBase,
-    height: 340,
+    height: 360,
     paddingHorizontal: 28,
     justifyContent: "center",
   },
